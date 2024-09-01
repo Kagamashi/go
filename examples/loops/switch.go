@@ -17,16 +17,17 @@ func switch_statement() {
 	case 3:
 		fmt.Println("three")
 	}
+	// Write 2 as two
 
 	switch time.Now().Weekday() {
-	case time.Saturday, time.Sunday:
+	case time.Saturday, time.Sunday: //separate multiple expressions in the same case statement with commas
 		fmt.Println("It's the weekend")
-	default:
+	default: //default case
 		fmt.Println("It's a weekday")
 	}
 
 	t := time.Now()
-	switch {
+	switch { //switch without an expression is a way to express if/else logic
 	case t.Hour() < 12:
 		fmt.Println("It's before noon")
 	default:
@@ -34,8 +35,8 @@ func switch_statement() {
 	}
 
 	whatAmI := func(i interface{}) {
-		switch t := i.(type) {
-		case bool:
+		switch t := i.(type) { //type switch compares types instead of values
+		case bool: //variable t will have the type corresponding to its clause
 			fmt.Println("I'm a bool")
 		case int:
 			fmt.Println("I'm an int")
@@ -46,4 +47,5 @@ func switch_statement() {
 	whatAmI(true)
 	whatAmI(1)
 	whatAmI("hey")
+
 }
