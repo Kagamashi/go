@@ -2,29 +2,24 @@ package main
 
 import "fmt"
 
-func main() {
-	//VALUES
-	fmt.Println("go" + "lang")        //golang
-	fmt.Println("1+1 =", 1+1)         //1+1 = 2
-	fmt.Println("7.0/3.0 =", 7.0/3.0) // 7.0/3.09 = 2.3333333335
-	fmt.Println(true && false)        //false
-	fmt.Println(true || false)        //true
-	fmt.Println(!true)                //false
+func variables() {
 
-	//VARIABLES
-    var a = "initial"
-    fmt.Println(a)
+	//*** VARIABLES
+	var a = "initial" // var declares 1 or more variables
+	fmt.Println(a)    //initial
 
-    var b, c int = 1, 2
-    fmt.Println(b, c)
+	var b, c int = 1, 2 // you can declare multiple variables at once
+	fmt.Println(b, c)   //1 2
 
-    var d = true
-    fmt.Println(d)
+	var d = true   // go will infer the type of initialized variables
+	fmt.Println(d) //true
 
-    var e int
-    fmt.Println(e)
+	var e int      // variables declared without initilization are zero-valued
+	fmt.Println(e) //0
 
-    f := "apple"
-    fmt.Println(f)
+	f := "apple"   // := syntax is shorthand for declaring and initializing a variable
+	fmt.Println(f) //apple
+	// e.g. f string = "apple"
+	// this syntax is only available inside functions
+
 }
-
