@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func plus(a int, b int) int {
+    return a + b
+}
+
+func plusPlus(a, b, c int) int { //Go requires explicit returns i.e. it wont automatially return the value of the last expression
+    return a + b + c
+}
+
+func main() {
+
+    res := plus(1, 2) //call a function with name(args)
+    fmt.Println("1+2 =", res)
+    // 1+2 = 3
+
+    res = plusPlus(1, 2, 3)
+    fmt.Println("1+2+3 =", res)
+    // 1+2+3 = 6
+
+}
