@@ -1,5 +1,3 @@
-package main
-
 import "fmt"
 
 func vals() (int, int) {
@@ -14,5 +12,5 @@ func main() {
 
     _, c := vals()
     fmt.Println(c)
-    
+
 }
