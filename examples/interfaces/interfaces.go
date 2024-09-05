@@ -6,7 +6,23 @@ import (
 )
 
 /* INTERFACE
-Interfaces are named collections of method signatures.
+Interfaces in Go define a set of method signatures that types must implement to satisfy the interface.
+- Type implemenets an interface if it has all the methods required by that interface. No explicit declaration is needed.
+type InterfaceName interface {
+    MethodName(parameters) returnType
+}
+
+- Emmpty interface (interface{}) can be used to represent any type, as all types implement it
+- Type asssertions can be used to exract the underlying type from an interface
+value := interfaceVariable.(ConcreteType)
+- Type switch allows branching logic based on the concrete type stored in an interface
+switch v := i.(type) {
+    case string:
+        // handle string type
+}
+- Zero value of an interface is 'nil' - no concrete value or type is stored
+- Functions can accept interfaces as parameters, allowing flexible and polymorphic behavior
+- Interfaces can embed other interfaces to create more complex interfaces (compositions)
 
 https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
 */
