@@ -6,11 +6,17 @@ import (
 )
 
 /* MAPS
-- called hashes or dicts in other languages
--
+Maps are unordered collections of key-value pairs.
+var m map[string]int
+m := make[map[string]int]
+m := map[string]int{"apple": 2, "banana": 5}
 
-
-
+- Keys can be any comparable type (strings, integers...)
+- Zero value of a map is 'nil', and it must be initialized using make or a literal before use
+- Values can be retrieve using (where ok indicates if the key exists):
+value, ok := m[key]
+- Key-value pair can be deleted from a map
+delete(m, key)
 */
 
 func map_structure() {

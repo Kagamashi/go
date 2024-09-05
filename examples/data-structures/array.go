@@ -3,8 +3,14 @@ package main
 import "fmt"
 
 /*** ARRAYS
-- by default array is zero-valued
+Arrays are fixed-size, ordered collections of elements of the same type
+var arr [5]int
+arr := [3]int{1, 2, 3}
 
+- Length is part of the array type and cannot change
+- Elements can be accessed using zero-based indexing
+arr[0]
+- Arrays are copied when passed to functions or assigned to variables
 */
 
 func arrays() {

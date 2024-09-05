@@ -6,10 +6,20 @@ import (
 )
 
 /* SLICES
+Slices are dynamic, resizable arrays that provide more flexibility than arrays.
+var s []int
+s := []int{1, 2, 3}
+s = make([]int, 3)
 
-
-
- */
+- Slices can grow and shrink in size
+- Slices are references to an underlying array - modifying the slice modifies the array
+- Slices can be created from arrays or other slices
+s := arr[1:3]
+- Built-in functions
+len(s) / length of the slice
+cap(s) / capacity of the slice (size of underlying array)
+append(s, elem) / add elements to a slice
+*/
 
 func slice() {
 
