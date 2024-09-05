@@ -47,17 +47,16 @@ func pointer() {
 
 	// zeroval doesn't change the i in main, but zeroptr does because it has a reference to the memory address for that variable
 
+	var ptr *int
 
-    var ptr *int
+	x := 42  // here we are obtaining the address
+	ptr = &x // ptr holds now the adress of x
 
-    x := 42  // here we are obtaining the address
-    ptr = &x  // ptr holds now the adress of x
+	fmt.Println(*ptr)
+	// 42
 
-    fmt.Println(*ptr)
-    // 42
+	*ptr = 100 // here we can modify the value at pointers address
 
-    *ptr = 100  // here we can modify the value at pointers address
-
-    fmt.Println(*ptr)
-    // 100
+	fmt.Println(*ptr)
+	// 100
 }

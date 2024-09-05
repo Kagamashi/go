@@ -6,6 +6,7 @@ import (
 )
 
 /* CONSTANTS
+Constants are individual fixed values
 const Pi = 3.14
 - Constants are immutable (once declared their values cannot be changed)
 - Constants without an explicit type are "untyped" and can be used with various types depending on context
@@ -31,14 +32,15 @@ func constants() {
 	fmt.Println(math.Sin(n)) //  math.Sin expects a float64
 	//-0.20470407323754404
 
-	const (  // multiple constants can be declared at once using parentheses
+	const ( // multiple constants can be declared at once using parentheses
 		A = 1
 		B = 2
 	)
 
+	// related to Enums
 	const ( // iota - is a special constant used for enumerated constants, which incremenets automatically
-    C0 = iota  // C0 == 0
-    C1 = iota  // C1 == 1
-    C2 = iota  // C2 == 2
+		C0 = iota // C0 == 0
+		C1 = iota // C1 == 1
+		C2 = iota // C2 == 2
 	)
 }
