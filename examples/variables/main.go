@@ -4,4 +4,6 @@ func main() {
 	values()
 	constants()
 	variables()
+	pointer()
+	enums()
 }
