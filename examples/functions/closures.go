@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-/* CLOSURES
-Closure is an anonymous function that captures variables from its surrounding scope.
+/* Closure is an anonymous function that captures variables from its surrounding scope.
 - Closures can maintain state between function calls.
 - Anonymous functions are useful when we want to define a function inline without having to name it
 */
