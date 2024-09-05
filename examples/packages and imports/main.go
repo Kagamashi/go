@@ -30,7 +30,8 @@ import (
 func main() {
 	fmt.Println("Hello, Go!")               // Print a message to the console
 
-	errors.New("error message")             // Create a new error with a message
+	err := errors.New("error message") // Create a new error with a message
+	fmt.Println(err) // Print the error to show it's being used
 	
 	math.Sqrt(16)                           // Compute the square root of 16
 	
