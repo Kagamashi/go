@@ -4,6 +4,7 @@ func main() {
 	arrays()
 	slice()
 	map_structure()
-	structs()
 	runes()
+	structs()
+	struct_embedding()
 }
