@@ -9,37 +9,29 @@ func for_loop() {
 		fmt.Println(i)
 		i = i + 1
 	}
-	/*
-		1
-		2
-		3
-	*/
+	/* 	1
+	2
+	3	 */
 
 	for j := 0; j < 3; j++ { // initial/condition/after for loop
 		fmt.Println(j)
 	}
-	/*
-		0
+	/*	0
 		1
-		2
-	*/
+		2	 */
 
 	for i := range 3 { // range over an integer - "do this N times" iteration
 		fmt.Println("range", i)
 	}
-	/*
-		range 0
+	/*	range 0
 		range 1
-		range 2
-	*/
+		range 2	 */
 
 	for { // for without condition will loop repeatedly until we break out of it or return from enclosing function
 		fmt.Println("loop")
 		break
 	}
-	/*
-		loop
-	*/
+	// loop
 
 	for n := range 6 { // we can also continue to the next iteration of the loop
 		if n%2 == 0 {
@@ -47,10 +39,8 @@ func for_loop() {
 		}
 		fmt.Println(n)
 	}
-	/*
-		1
+	/*	1
 		3
-		5
-	*/
+		5  */
 
 }
