@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+/* IF ELSE
+Used for conditional execution of code based on Boolean expressions
+- Variables can be declared within the if statement and they are spoced to the if block
+- Go does not support a tenary operator (? :) - use if-else blocks instead
+*/
+
 func if_else() {
 
 	if 7%2 == 0 {

@@ -3,9 +3,7 @@ package main
 import "fmt"
 
 /* RANGE
-- range iterates over elements in a variety of built-in data structures
-
-
+'range' keyword is used to iterate over elements in arrays, slices, maps, string and channels
 */
 
 func range_f() {

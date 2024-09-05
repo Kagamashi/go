@@ -5,6 +5,23 @@ import (
 	"time"
 )
 
+/* SWITCH
+Used for multi-way branching based on the value of an expression
+
+- Multiple values can be listed for a single case
+case "A", "B", "C":
+	// shared block for A, B, C
+- switch without an expression acts like switch true, allowing complex conditional logic
+switch {
+case x < 0:
+	// negative case
+case x == 0:
+	// zero case
+default:
+	// positive case
+}
+*/
+
 func switch_statement() {
 
 	i := 2
