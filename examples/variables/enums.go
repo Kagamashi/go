@@ -42,11 +42,11 @@ func (ss ServerState) String() string {
 func enums() {  // if we have a value of type int we cannot pass it to transition
 	ns := transition(StateIdle)  //the compiler will complain about type mismatch - this provides some degree of compile-time safety for enums
 	fmt.Println(ns)
-	//
+	// connected
 
 	ns2 := transition(ns)
 	fmt.Println(ns2)
-	//
+	// idle
 }
 
 func transition(s ServerState) ServerState {  // transition emulates a state transition for a server; it takes the existing state and returns a new state
@@ -54,7 +54,6 @@ func transition(s ServerState) ServerState {  // transition emulates a state tra
 	case StateIdle:
 		return StateConnected
 	case StateConnected, StateRetrying:
-
 		return StateIdle  // we check some predicates here to determine the next state
 	case StateError:
 		return StateError
