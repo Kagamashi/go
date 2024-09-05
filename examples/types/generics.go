@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+/* GENERICS
+
+*/
+
 func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
     for i := range s {
         if v == s[i] {
@@ -42,6 +46,7 @@ func generics() {
     var s = []string{"foo", "bar", "zoo"}
 
     fmt.Println("index of zoo:", SlicesIndex(s, "zoo"))
+		// index of zoo: 
 
     _ = SlicesIndex[[]string, string](s, "zoo")
 
@@ -50,4 +55,6 @@ func generics() {
     lst.Push(13)
     lst.Push(23)
     fmt.Println("list:", lst.AllElements())
+	// list:
+
 }
