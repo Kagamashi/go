@@ -21,7 +21,7 @@ type container struct { // a container embeds a base.
 	str  string
 }
 
-func struct_embedding() {
+func struct_embedding() { //"main"
 
 	co := container{ // when creating structs with literals, we have to initialize the embedding explicity
 		base: base{ // here the embedded type serves as the field name
@@ -31,10 +31,13 @@ func struct_embedding() {
 	}
 
 	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str) // we can access the base fields directly on co, e.g. co.num
+	// co={num: 1, str: some name}
 
 	fmt.Println("also num:", co.base.num) // alternatively, we can spell out the full path using embedded type name
+	// also num: 1
 
 	fmt.Println("describe:", co.describe()) // since container embeds base, the methods of base also become methods of container - here we invoke a method that was embedded from base directly on co
+	// describe: base with num=1
 
 	type describer interface {
 		describe() string
@@ -42,5 +45,6 @@ func struct_embedding() {
 
 	var d describer = co                    // embedding structs with methods may be used to bestow interface implementation onto other structs
 	fmt.Println("describer:", d.describe()) // here we see that a container now implements the describer interface because it embeds base
+	// describer: base with num=1
 
 }
