@@ -7,7 +7,7 @@ For is the only looping construct in Go
 for i := 0; i < 10; i++ {
 	// loop body
 }
-	
+
 - Loop can be infinite
 for {}
 - Use 'break' to exit the loop
@@ -19,7 +19,7 @@ for i, j := 0, 0; i < 5 && j < 5; j = i+1, j+2 {
 */
 
 func for_loop() {
-	
+
 	i := 1
 	for i <= 3 { // single condition - similar to while loop
 		fmt.Println(i)
