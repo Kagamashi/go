@@ -5,4 +5,5 @@ func main() {
 	if_else()
 	switch_statement()
 	range_f()
+	range_over_iterators()
 }
