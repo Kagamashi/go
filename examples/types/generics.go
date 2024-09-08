@@ -36,14 +36,14 @@ type List[T any] struct { // example of generic type, List is a singly-linked li
 	head, tail *element[T]
 }
 
-type element[T any] struct {  // represents a single element in the list
-	next *element[T]  // points to the next element in the list
-	val  T  // value of the element
+type element[T any] struct { // represents a single element in the list
+	next *element[T] // points to the next element in the list
+	val  T           // value of the element
 }
 
 func (lst *List[T]) Push(v T) { // we can define methods on generic types just like we do on regular types
 	if lst.tail == nil { // but we have to keep the type parameters in place. Type is List[T], not List
-		lst.head = &element[T]{val: v}  // new element becomes the head and tail of the list
+		lst.head = &element[T]{val: v} // new element becomes the head and tail of the list
 		lst.tail = lst.head
 	} else {
 		lst.tail.next = &element[T]{val: v}
@@ -65,7 +65,7 @@ func generics() {
 	fmt.Println("index of zoo:", SlicesIndex(s, "zoo")) // when invoking generic functions, we can rely on type interference
 	// index of zoo: 2
 
-	_ = SlicesIndex[[]string, string](s, "zoo") 
+	_ = SlicesIndex[[]string, string](s, "zoo")
 	// _ czyli 'blank identifier' means that the result of the function call will be ignored
 
 	lst := List[int]{}

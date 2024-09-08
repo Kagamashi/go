@@ -28,15 +28,15 @@ func fc(arg int) (int, error) {
 
 func custom_error_defn() {
 
-	_, err := fc(42)  //errors.As is a more advanced version of errors.Is
-	var ae *argError  //it checks that given error matches a specific error type and convert to a value of that type, returning true
+	_, err := fc(42) //errors.As is a more advanced version of errors.Is
+	var ae *argError //it checks that given error matches a specific error type and convert to a value of that type, returning true
 	if errors.As(err, &ae) {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.message)
 	} else {
 		fmt.Println("err doesn't match argError")
 	}
-    // 42
-    // can't work with it
+	// 42
+	// can't work with it
 
 }

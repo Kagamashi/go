@@ -84,11 +84,11 @@ func range_over_iterators() {
 		}
 		fmt.Println(n)
 		/*  1
-            1
-            2
-            3
-            5
-		    8 */
+		            1
+		            2
+		            3
+		            5
+				    8 */
 
 	}
 }
