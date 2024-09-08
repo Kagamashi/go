@@ -17,15 +17,15 @@ val := <-ch
 func sendOnly(ch chan<- int) {ch <- 42}
 func receiveOnly(ch <-chan int) {val := <-ch}
 - Channels should be closed using 'close(ch)' to indicate no more values will be sent
- */
+*/
 
 func channels() {
 
-	messages := make(chan string)  //create new channel - channels are typed by the values they convey
+	messages := make(chan string) //create new channel - channels are typed by the values they convey
 
-	go func() { messages <- "ping" }()  // send a value into a channel using channel <-sytanx - here we send "ping" to the messages channel
+	go func() { messages <- "ping" }() // send a value into a channel using channel <-sytanx - here we send "ping" to the messages channel
 
-	msg := <-messages  // <-channel syntax receives a value from the channel
+	msg := <-messages // <-channel syntax receives a value from the channel
 	fmt.Println(msg)
 	// ping
 
