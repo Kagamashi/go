@@ -30,7 +30,7 @@ func channel_closing() {
         jobs <- j
         fmt.Println("sent job", j)
     }
-    close(jobs)
+    close(jobs)  // closing the channel
     fmt.Println("sent all jobs")
 
     <-done  // await the worker using the synchronization approach
