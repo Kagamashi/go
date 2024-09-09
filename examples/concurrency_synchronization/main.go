@@ -7,7 +7,4 @@ func main() {
 	channel_synchronization()
 	channel_directions()
 	channel_closing()
-	select_ch()
-	select_default()
-	timeouts()
 }

@@ -5,5 +5,4 @@ func main() {
 	constants()
 	variables()
 	pointer()
-	enums()
 }
