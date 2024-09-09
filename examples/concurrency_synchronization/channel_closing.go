@@ -20,7 +20,7 @@ func channel_closing() {
                 fmt.Println("received job", j)
             } else {
                 fmt.Println("received all jobs")
-                done <- true
+                done <- true  // synchronization approach
                 return
             }
         }
