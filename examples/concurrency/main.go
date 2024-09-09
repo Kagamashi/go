@@ -6,7 +6,8 @@ func main() {
 	channel_bufering()
 	channel_synchronization()
 	channel_directions()
+	channel_closing()
 	select_ch()
-	timeouts()
 	select_default()
+	timeouts()
 }

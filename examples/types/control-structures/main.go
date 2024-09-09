@@ -6,4 +6,5 @@ func main() {
 	switch_statement()
 	range_f()
 	range_over_iterators()
+	range_over_channels()
 }
