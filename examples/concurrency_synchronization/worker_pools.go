@@ -11,19 +11,24 @@ Worker Pools are used to manage concurrent tasks by distributing work among a fi
 1. Set up a job channel to send tasks
 2. Launch multiple goroutines that process jobs from the channel
 3. Send tasks through the job channel nd close it when done
+
+jobs := make(chan int, 100)
+results := make(chan int, 100)
+for w := 1; w <= 3; w++ {
+    go worker(w, jobs, results)
+}
+for j := 1; j <= 5; j++ {
+    jobs <- j
+}
+close(jobs)
+
 - Each worker goroutine processes tasks from the jobs channel, ensuring efficient concurrent execution
 - Improves performance by limiting the number of active goroutines and controlling concurrency
 */
 
-/*
-	worker of which we'll run several concurrent instances
-
-these worker will receive work on the jobs channel
-and send the corresponding results on results channel
-*/
-func worker_p(id int, jobs <-chan int, results chan<- int) {
-	for j := range jobs {
-		fmt.Println("worker", id, "started  job", j)
+func worker_p(id int, jobs <-chan int, results chan<- int) { // worker of which we'll run several concurrent instances
+	for j := range jobs { // these worker will receive work on the jobs channel
+		fmt.Println("worker", id, "started  job", j) // and send the corresponding results on results channel
 		time.Sleep(time.Second)
 		fmt.Println("worker", id, "finished job", j)
 		results <- j * 2
