@@ -6,8 +6,13 @@ import (
 )
 
 /* WORKER POOLS
-
-
+Worker Pools are used to manage concurrent tasks by distributing work among a fixed number of goroutines.
+- Creating a worker pool:
+1. Set up a job channel to send tasks
+2. Launch multiple goroutines that process jobs from the channel
+3. Send tasks through the job channel nd close it when done
+- Each worker goroutine processes tasks from the jobs channel, ensuring efficient concurrent execution
+- Improves performance by limiting the number of active goroutines and controlling concurrency
 */
 
 /* worker of which we'll run several concurrent instances
@@ -42,11 +47,18 @@ func worker_pools() {
     }
 		/*	worker 1 started	job 1
 				worker 2 started	job 2
+				worker 3 started	job 3
+				worker 1 finished	job 1
+				worker 1 started	job 4
+				worker 2 finished job 2
+				worker 2 started 	job 5
+				worker 3 finished job 3
+				worker 1 finished	job 4
+				worker 2 finished job 5
+
+				real 0m2.358s	*/
 
 
-		*/
-
-
-		/* Our running program shows the 5 jobs being executed by various worker.
+		/* Our running program shows the 5 jobs being executed by various worker. 
 		The program only takes about 2 seconds despite doing about 5 seconds of total work because there are 3 workers operating concurrently */
 }
