@@ -27,15 +27,15 @@ func atomic_counters() {
 	var wg sync.WaitGroup // WaitGroup will help us wait for all goroutines to finish their work
 
 	for i := 0; i < 50; i++ { // Start 50 goroutines that each increment the counter exactly 1000 times
-		wg.Add(1)  // Raise WaitGroup counter by 1 for each goroutine started
+		wg.Add(1) // Raise WaitGroup counter by 1 for each goroutine started
 
-		go func() {  
-			for c := 0; c < 1000; c++ {  // 1000 operations incrementing opc counter by 1
+		go func() {
+			for c := 0; c < 1000; c++ { // 1000 operations incrementing opc counter by 1
 
 				ops.Add(1) // To atomically increment the counter we use Add
 			}
 
-			wg.Done()  // Reduce WaitGroup couter signalizing that goroutine ended its work
+			wg.Done() // Reduce WaitGroup couter signalizing that goroutine ended its work
 		}()
 	}
 
