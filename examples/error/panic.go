@@ -11,10 +11,10 @@ It's generally for unrecoverable errors or critical failures.
 
 func panic_er() {
 
-    panic("a problem")
+	panic("a problem")
 
-    _, err := os.Create("/tmp/file")
-    if err != nil {
-        panic(err)
-    }
+	_, err := os.Create("/tmp/file")
+	if err != nil {
+		panic(err)
+	}
 }

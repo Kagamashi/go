@@ -11,19 +11,19 @@ Recover is used to regain control of a panicking goroutine, effectively stopping
 */
 
 func mayPanic() {
-    panic("a problem")
+	panic("a problem")
 }
 
 func recover_er() {
 
-    defer func() {
-        if r := recover(); r != nil {
+	defer func() {
+		if r := recover(); r != nil {
 
-            fmt.Println("Recovered. Error:\n", r)
-        }
-    }()
+			fmt.Println("Recovered. Error:\n", r)
+		}
+	}()
 
-    mayPanic()
+	mayPanic()
 
-    fmt.Println("After mayPanic()")
+	fmt.Println("After mayPanic()")
 }
