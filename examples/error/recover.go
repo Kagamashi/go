@@ -10,20 +10,23 @@ Recover is used to regain control of a panicking goroutine, effectively stopping
 - Used for graceful error recovery, especially in servers or critical systems where abrupt termination must be avoided
 */
 
-func mayPanic() {
+func mayPanic() { // Function that deliberately causes a panic
 	panic("a problem")
 }
 
 func recover_er() {
 
-	defer func() {
-		if r := recover(); r != nil {
+	defer func() { // Use defer to set up a recovery function in case of a panic
+		if r := recover(); r != nil { // Recover call will catch the panic
 
 			fmt.Println("Recovered. Error:\n", r)
 		}
 	}()
 
-	mayPanic()
+	mayPanic() // Call the function that caused a panic
 
-	fmt.Println("After mayPanic()")
+	fmt.Println("After mayPanic()") // This line would not be reached if a panic is not recovered, because the program will crash
+
+	// Recovered. Error:
+	// 	a problem
 }

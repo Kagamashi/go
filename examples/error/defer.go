@@ -16,33 +16,34 @@ func main() {
 - Defer is useful for closing resources ensuring the cleanup always happens regardless of how the function exits.
 */
 
-func defer_er() {
+func defer_er() { //main
 
-	f := createFile("/tmp/defer.txt")
-	defer closeFile(f)
+	f := createFile("/tmp/defer.txt") // Create a file at provided path and store file pointer in 'f'
+	defer closeFile(f)                // Use defer to ensure the file is closed at the end of the main function
 	writeFile(f)
-	//
-	//
-	//
+	// creating
+	// writing
+	// closing
 }
 
+// Creates new file at given path
 func createFile(p string) *os.File {
 	fmt.Println("creating")
 	f, err := os.Create(p)
 	if err != nil {
 		panic(err)
 	}
-	return f
+	return f // Return file pointer to use by other functions
 }
 
 func writeFile(f *os.File) {
 	fmt.Println("writing")
-	fmt.Fprintln(f, "data")
+	fmt.Fprintln(f, "data") // Write string "data" into the file
 }
 
 func closeFile(f *os.File) {
 	fmt.Println("closing")
-	err := f.Close()
+	err := f.Close() // Attempt to close the file
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
