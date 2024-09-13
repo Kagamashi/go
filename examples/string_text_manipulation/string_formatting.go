@@ -9,7 +9,7 @@ type point struct {
 	x, y int
 }
 
-func main() {
+func string_formatting() {
 
 	p := point{1, 2}
 	fmt.Printf("struct1: %v\n", p)
