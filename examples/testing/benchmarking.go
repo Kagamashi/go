@@ -30,14 +30,14 @@ func BenchmarkIntMin(b *testing.B) { // Benchmark tests typically in _test.go fi
 	}
 
 	/*
-		> go test -bench=.
+	> go test -bench=.
 
-		goos: darwin
-		goarch: arm64
-		pkg: examples/testing
-		BenchmarkIntMin-8 1000000000 0.3136 ns/op
-		PASS
-		ok      examples/testing-and-benchmarking    0.351s
+	goos: darwin
+	goarch: arm64
+	pkg: examples/testing
+	BenchmarkIntMin-8 1000000000 0.3136 ns/op
+	PASS
+	ok      examples/testing-and-benchmarking    0.351s
 	*/
 
 }

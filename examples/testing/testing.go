@@ -58,24 +58,24 @@ func TestIntMinTableDriven(t *testing.T) { // Wirting tests can be repetitive, s
 	}
 
 	/*
-	   > go test -v
+    > go test -v
 
-	   == RUN   TestIntMinBasic
-	   --- PASS: TestIntMinBasic (0.00s)
-	   === RUN   TestIntMinTableDriven
-	   === RUN   TestIntMinTableDriven/0,1
-	   === RUN   TestIntMinTableDriven/1,0
-	   === RUN   TestIntMinTableDriven/2,-2
-	   === RUN   TestIntMinTableDriven/0,-1
-	   === RUN   TestIntMinTableDriven/-1,0
-	   --- PASS: TestIntMinTableDriven (0.00s)
-	       --- PASS: TestIntMinTableDriven/0,1 (0.00s)
-	       --- PASS: TestIntMinTableDriven/1,0 (0.00s)
-	       --- PASS: TestIntMinTableDriven/2,-2 (0.00s)
-	       --- PASS: TestIntMinTableDriven/0,-1 (0.00s)
-	       --- PASS: TestIntMinTableDriven/-1,0 (0.00s)
-	   PASS
-	   ok      examples/testing-and-benchmarking    0.023s
+    == RUN   TestIntMinBasic
+    --- PASS: TestIntMinBasic (0.00s)
+    === RUN   TestIntMinTableDriven
+    === RUN   TestIntMinTableDriven/0,1
+    === RUN   TestIntMinTableDriven/1,0
+    === RUN   TestIntMinTableDriven/2,-2
+    === RUN   TestIntMinTableDriven/0,-1
+    === RUN   TestIntMinTableDriven/-1,0
+    --- PASS: TestIntMinTableDriven (0.00s)
+        --- PASS: TestIntMinTableDriven/0,1 (0.00s)
+        --- PASS: TestIntMinTableDriven/1,0 (0.00s)
+        --- PASS: TestIntMinTableDriven/2,-2 (0.00s)
+        --- PASS: TestIntMinTableDriven/0,-1 (0.00s)
+        --- PASS: TestIntMinTableDriven/-1,0 (0.00s)
+    PASS
+    ok      examples/testing-and-benchmarking    0.023s
 	*/
 
 }
