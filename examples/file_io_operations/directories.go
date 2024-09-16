@@ -21,7 +21,7 @@ entry.IsDir
 
 func directories() {
 
-	err := os.Mkdir("subdir", 0755) // Create new sub-directory 
+	err := os.Mkdir("subdir", 0755) // Create new sub-directory
 	check_dir(err)
 
 	defer os.RemoveAll("subdir") // Remove directory subdir after whole function runs
@@ -31,12 +31,12 @@ func directories() {
 		check_dir(os.WriteFile(name, d, 0644))
 	}
 
-	createEmptyFile("subdir/file1")  // Create empty file
+	createEmptyFile("subdir/file1") // Create empty file
 
 	err = os.MkdirAll("subdir/parent/child", 0755) // We can create a hierarchy of directories, including parents with MkdirAll - similar to command-line 'mkdir -p'
 	check_dir(err)
 
-	createEmptyFile("subdir/parent/file2") 
+	createEmptyFile("subdir/parent/file2")
 	createEmptyFile("subdir/parent/file3")
 	createEmptyFile("subdir/parent/child/file4")
 
@@ -48,9 +48,9 @@ func directories() {
 		fmt.Println(" ", entry.Name(), entry.IsDir()) // Checks if outputed objects are directories or not
 	}
 	/* Listing subdir/parent
-			child true
-			file2 false
-			file3 false
+	child true
+	file2 false
+	file3 false
 	*/
 
 	err = os.Chdir("subdir/parent/child") // Chdir lets us change the surrect working directory - similarly to 'cd'
@@ -64,7 +64,7 @@ func directories() {
 		fmt.Println(" ", entry.Name(), entry.IsDir())
 	}
 	/* Listing subdir/parent/child
-			file 4 false
+	file 4 false
 	*/
 
 	err = os.Chdir("../../..")
@@ -73,13 +73,13 @@ func directories() {
 	fmt.Println("Visiting subdir")
 	err = filepath.WalkDir("subdir", visit) // Visit directory recursively, including all its sub-directories
 	/* Visiting subdir
-			subdir true
-			subdir/file1 false
-			subdir/parent true
-			subdir/parent/child true
-			subdir/parent/child/file4 false
-			subdir/parent/file2 false
-			subdir/parent/file3 false
+	subdir true
+	subdir/file1 false
+	subdir/parent true
+	subdir/parent/child true
+	subdir/parent/child/file4 false
+	subdir/parent/file2 false
+	subdir/parent/file3 false
 	*/
 
 }
