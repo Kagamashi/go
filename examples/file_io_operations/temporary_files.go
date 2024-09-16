@@ -6,12 +6,6 @@ import (
 	"path/filepath"
 )
 
-func check_tfd(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func temporary_files_and_directories() {
 
 	f, err := os.CreateTemp("", "sample")
@@ -33,4 +27,11 @@ func temporary_files_and_directories() {
 	fname := filepath.Join(dname, "file1")
 	err = os.WriteFile(fname, []byte{1, 2}, 0666)
 	check_tfd(err)
+
+}
+
+func check_tfd(e error) {
+	if e != nil {
+		panic(e)
+	}
 }

@@ -40,7 +40,7 @@ func writing_files() {
 	fmt.Printf("wrote %d bytes\n", n3)
 	// wrote 7 bytes
 
-	f.Sync()  // Sync to flush writes to stable storage
+	f.Sync() // Sync to flush writes to stable storage
 
 	w := bufio.NewWriter(f) // Create new buffered writer 'w' that wraps around file f
 	n4, err := w.WriteString("buffered\n")

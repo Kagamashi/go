@@ -6,6 +6,16 @@ import (
 	"strings"
 )
 
+/* FILE PATHS
+path/filepath package provides utilities to work with file and directory paths across different operating systems
+- Ensures cross-platform compability when handling file paths
+
+- Common functions:
+filepath.Join(elements...) - combines multiple path elements into a single path
+filepath.Abs(path) - returns the absolute path of a relative path
+filepath.Base(path) - returns the last element of the path (e.g. filename)
+*/
+
 func file_paths() {
 
 	p := filepath.Join("dir1", "dir2", "filename")
@@ -38,4 +48,5 @@ func file_paths() {
 		panic(err)
 	}
 	fmt.Println(rel)
+	
 }
