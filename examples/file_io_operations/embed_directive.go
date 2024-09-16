@@ -12,15 +12,15 @@ embed package allows embedding static files (HTML, CSS, JSON) into a Go binary a
 - Allows bundling resources directly into the application binary, simplifying deployment and reducing external dependencies
 */
 
-//go:embed folder/single_file.txt
+//-go:embed folder/single_file.txt
 var fileString string // embed directives accept paths relative to the directory containing Go source file
 // this directive embeds the contents of the file into the string variable immediately following it
 
-//go:embed folder/single_file.txt
+//-go:embed folder/single_file.txt
 var fileByte []byte // embed the contents of the file into []byte
 
-//go:embed folder/single_file.txt
-//go:embed folder/*.hash
+//-go:embed folder/single_file.txt
+//-go:embed folder/*.hash
 var folder embed.FS // Embed multiple files/folders with wildcards - this uses a variable of embed.FS type which implements simple virtual file system
 
 func embed_directive() {
