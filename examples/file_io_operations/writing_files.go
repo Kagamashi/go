@@ -29,7 +29,7 @@ func writing_files() {
 
 	defer f.Close() // Defer the closing of the file 'f' until the function exits
 
-	d2 := []byte{115, 111, 109, 101, 10} // Create byte slice 'd2' that constains the ASCII values
+	d2 := []byte{115, 111, 109, 101, 10} // Create byte slice 'd2' that constains the ASCII values of 'some' word
 	n2, err := f.Write(d2)               // Write byte slice 'd2' to file f. Number of bytes written is stored in n2.
 	check_wf(err)
 	fmt.Printf("wrote %d bytes\n", n2)
@@ -40,7 +40,7 @@ func writing_files() {
 	fmt.Printf("wrote %d bytes\n", n3)
 	// wrote 7 bytes
 
-	f.Sync()
+	f.Sync()  // Sync to flush writes to stable storage
 
 	w := bufio.NewWriter(f) // Create new buffered writer 'w' that wraps around file f
 	n4, err := w.WriteString("buffered\n")
@@ -48,7 +48,7 @@ func writing_files() {
 	fmt.Printf("wrote %d bytes\n", n4)
 	// wrote 9 bytes
 
-	w.Flush()
+	w.Flush() // Flush to ensure all buffered operations have been applied to the underlying writer
 
 	// > cat /tmp/dat1
 	// hello
