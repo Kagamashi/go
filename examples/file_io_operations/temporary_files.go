@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 )
 
+
+
 func temporary_files_and_directories() {
 
 	f, err := os.CreateTemp("", "sample")
