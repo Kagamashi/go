@@ -1,11 +1,5 @@
 //GO INSTALLATION
 
-
-
-
-
-
-
 // HOMEBREW
 <!-- export GOPATH=$HOME/go -->
 export GOPATH=$HOME/DevOps/mY/Gopher/
