@@ -64,7 +64,7 @@ func slice() {
 	fmt.Println("sl3:", l)
 	// sl3: [c d e f]
 
-	t := []string{"g", "h", "i"} //we can declare and initialize a variable for s lice in a single line as well
+	t := []string{"g", "h", "i"} //we can declare and initialize a variable for slice in a single line as well
 	fmt.Println("dcl:", t)
 	// dcl: [g h i]
 
