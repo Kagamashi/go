@@ -36,12 +36,12 @@ func runes() {
 		fmt.Printf("%#U starts at %d\n", runeValue, idx)
 	}
 	/*
-	   U+0E2A 'ส' starts at 0
-	   U+0E27 'ว' starts at 3
-	   U+0E31 'ั' starts at 6
-	   U+0E2A 'ส' starts at 9
-	   U+0E14 'ด' starts at 12
-	   U+0E35 'ี' starts at 15
+		U+0E2A 'ส' starts at 0
+		U+0E27 'ว' starts at 3
+		U+0E31 'ั' starts at 6
+		U+0E2A 'ส' starts at 9
+		U+0E14 'ด' starts at 12
+		U+0E35 'ี' starts at 15
 	*/
 
 	fmt.Println("\nUsing DecodeRuneInString") // we can achieve the same iteration using the utf8.DecodeRuneInString function
@@ -53,15 +53,15 @@ func runes() {
 		examineRune(runeValue) // this demonstrates passing a rune vaue to a function
 	}
 	/*
-	   Using DecodeRuneInString
-	   U+0E2A 'ส' starts at 0
-	   found so sua
-	   U+0E27 'ว' starts at 3
-	   U+0E31 'ั' starts at 6
-	   U+0E2A 'ส' starts at 9
-	   found so sua
-	   U+0E14 'ด' starts at 12
-	   U+0E35 'ี' starts at 15
+		Using DecodeRuneInString
+		U+0E2A 'ส' starts at 0
+		found so sua
+		U+0E27 'ว' starts at 3
+		U+0E31 'ั' starts at 6
+		U+0E2A 'ส' starts at 9
+		found so sua
+		U+0E14 'ด' starts at 12
+		U+0E35 'ี' starts at 15
 	*/
 }
 
