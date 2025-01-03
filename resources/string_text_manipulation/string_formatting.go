@@ -10,6 +10,8 @@ import (
 	%s string
 	%f float
 	%d integer
+%c print character represented by rune
+%U print Unicode code point
 %+v include struct field names
 %T print type of the value
 %x provides HEX encoding
