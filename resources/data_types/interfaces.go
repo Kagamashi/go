@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+// Any type that has the two methods LanguageName() and Greet(name string) automatically fits the Greeter interface.
+
 /* INTERFACE
 Interfaces in Go define a set of method signatures that types must implement to satisfy the interface.
 - Type implemenets an interface if it has all the methods required by that interface. No explicit declaration is needed.
