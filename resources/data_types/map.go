@@ -48,8 +48,8 @@ func map_structure() {
 	fmt.Println("map:", m)
 	// map: map[]
 
-	_, prs := m["k2"] //optional second return value when getting a value from a map indicates if the key was present in the map
-	fmt.Println("prs:", prs)
+	_, exists := m["k2"] //optional second return value when getting a value from a map indicates if the key was present in the map
+	fmt.Println("prs:", exists)
 	// prs: false
 
 	n := map[string]int{"foo": 1, "bar": 2}
