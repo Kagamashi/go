@@ -1,4 +1,4 @@
-package reverse
+package task
 
 func Reverse(input string) string {
     runes := []rune(input)
