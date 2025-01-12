@@ -1,4 +1,4 @@
-package lsproduct
+package task
 
 import (
     "errors"
