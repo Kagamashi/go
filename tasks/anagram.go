@@ -1,4 +1,4 @@
-package anagram
+package task
 
 import "strings"
 
