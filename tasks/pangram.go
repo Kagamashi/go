@@ -1,4 +1,4 @@
-package pangram
+package 
 
 import "strings"
 
