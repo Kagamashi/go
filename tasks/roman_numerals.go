@@ -8,7 +8,7 @@ func ToRomanNumeral(input int) (string, error) {
         return "", errors.New("Invalid input.")
     }
     
-	var romanNumerals = []struct {
+    var romanNumerals = []struct {
     	value int
     	numeral string
     }{
