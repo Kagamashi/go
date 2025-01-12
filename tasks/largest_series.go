@@ -6,45 +6,36 @@ import (
     "unicode"
 )
 
+// LargestSeriesProduct calculates the largest product of 'span' adjacent digits in 'digits'.
 func LargestSeriesProduct(digits string, span int) (int64, error) {
-    if len(digits) < span || span <= 0 {
-        return 0, errors.New("Invalid input.")
+    if span <= 0 || span > len(digits) {
+        return 0, errors.New("invalid span or digits length")
     }
 
     for _, r := range digits {
-        if unicode.IsDigit(r) != true {
-            return 0, errors.New("Invalid non-digit characters in input.")
+        if !unicode.IsDigit(r) {
+            return 0, errors.New("contains non-digit characters")
         }
     }
 
-    if len(digits) == span {
-        return Multiply(digits), nil
-    }
+    var maxProduct int64
 
-    var result int64
-	var max int64
-    
-    for i := 0; i < (len(digits) - span + 1); i++ {
+    for i := 0; i <= len(digits)-span; i++ {
         sub := digits[i : i+span]
-        res := Multiply(sub)
-
-        if res >= max {
-            max = res
-            result = max
+        product := multiply(sub)
+        if product > maxProduct {
+            maxProduct = product
         }
     }
 
-    return result, nil
+    return maxProduct, nil
 }
 
-func Multiply(digits string) int64 {
+// multiply calculates the product of all digits in a string of numeric characters.
+func multiply(sub string) int64 {
     var product int64 = 1
-
-    for _, r := range digits {
-        n, err := strconv.Atoi(string(r))
-        if err != nil {
-            continue
-        }
+    for _, r := range sub {
+        n, _ := strconv.Atoi(string(r))
         product *= int64(n)
     }
 
