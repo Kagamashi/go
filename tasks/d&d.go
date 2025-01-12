@@ -1,4 +1,4 @@
-package dndcharacter
+package task
 
 import (
     "math"
