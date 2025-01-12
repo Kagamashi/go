@@ -1,15 +1,15 @@
-package 
+package task
 
 import "strings"
 
 func pangram(input string) bool {
-	s := strings.ToLower(input)
+    s := strings.ToLower(input)
 
-	for char := "a"; char <= "z"; char++ {
-		if !strings.ContainsRune(s, char) {
-			return false 
-		}
-	}
+    for c := 'a'; c <= 'z'; c++ {
+        if !strings.ContainsRune(s, c) {
+            return false
+        }
+    }
 
-	return true
+    return true
 }
