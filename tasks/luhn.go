@@ -1,4 +1,4 @@
-package luhn
+package task
 
 import (
 	"strings"
