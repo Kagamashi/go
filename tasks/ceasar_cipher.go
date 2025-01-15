@@ -4,9 +4,15 @@ import (
     "strings"
 )
 
+
 type shift int
 
 type vigenere string
+
+type Cipher interface {
+	Encode(string) string
+	Decode(string) string
+}
 
 // NewCaesar returns a Cipher interface implemented by a shift of 3, representing the classic Caesar cipher.
 func NewCaesar() Cipher {
@@ -22,20 +28,6 @@ func NewShift(distance int) Cipher {
     return shift(distance)
 }
 
-// NewVigenere returns a Cipher interface implemented by the given key.
-func NewVigenere(key string) Cipher {
-	if len(key) == 0 || strings.Trim(key, "a") == "" {
-        return nil
-    }
-
-    for _, r := range key {
-        if r < 'a' || r > 'z' {
-            return nil
-        }
-    }
-
-    return vigenere(key)
-}
 
 func (c shift) Encode(input string) string {
     return shiftString(input, int(c))
@@ -56,6 +48,21 @@ func shiftString(input string, distance int) string {
         }
     }
     return result.String()
+}
+
+// NewVigenere returns a Cipher interface implemented by the given key.
+func NewVigenere(key string) Cipher {
+	if len(key) == 0 || strings.Trim(key, "a") == "" {
+        return nil
+    }
+
+    for _, r := range key {
+        if r < 'a' || r > 'z' {
+            return nil
+        }
+    }
+
+    return vigenere(key)
 }
 
 func (v vigenere) Encode(input string) string {
