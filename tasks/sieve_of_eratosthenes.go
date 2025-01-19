@@ -8,7 +8,7 @@ func Sieve(limit int) []int {
     }
 
     for p := 2; p*p <= limit; p++ {
-        if primes[p] == true {
+        if primes[p] {
             for i := p*p; i <= limit; i += p {
                 primes[i] = false
             }
