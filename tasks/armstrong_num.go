@@ -1,4 +1,4 @@
-package armstrong
+package task
 
 import "math"
 
