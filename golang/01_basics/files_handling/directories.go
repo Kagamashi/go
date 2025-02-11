@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	"io/fs"
@@ -7,16 +6,17 @@ import (
 	"path/filepath"
 )
 
-/* DIRECTORIES
+/* 
+DIRECTORIES
 os package provides functions for creating, removing and reading directories
 
-- Common functions:
-os.Mkdir(name, perm) - creates directory with specified permissions
-os.RemoveAll(path) - removes a directory and all of its contents
-os.ReadDir(path) - reads the contents of a directory and returns a list of directory entries
-os.Chdir(path) - change working directory to path
-filepathj.WalkDir
-entry.IsDir
+Common functions:
+	os.Mkdir(name, perm) - creates directory with specified permissions
+	os.RemoveAll(path) - removes a directory and all of its contents
+	os.ReadDir(path) - reads the contents of a directory and returns a list of directory entries
+	os.Chdir(path) - change working directory to path
+	filepathj.WalkDir
+	entry.IsDir
 */
 
 func directories() {
