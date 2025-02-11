@@ -1,11 +1,10 @@
 package main
-
 import (
 	"fmt"
 	"time"
 )
 
-/* RATE LIMITING
+/*
 Rate Limiting controles the frequency of events or requests, often used in APIs to limit traffic.
 - Implemented by using:
 time.Ticker
