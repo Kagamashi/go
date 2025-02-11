@@ -1,21 +1,20 @@
 package main
-
 import "fmt"
 
-/* CHANNELS
+/* 
 Channels are Go's primary mechanism for communication between goroutines allowing them to safely share data.
 - Channels are declared using chan keyword:
-ch := make(chan int)
+				ch := make(chan int)
 - Channels are typed, they can only transport a specific type of data
 - Synchronous communication - sending/receiving from a channel are blocking until both the sender and receiver are ready
 - Channels can hold a specific number of values:
 ch := make(chan int, 2)
 - Sending and receiveing data to/from channel:
-ch <- value
-val := <-ch
+		ch <- value
+		val := <-ch
 - Channel can be directional - restricted to either sending or receiving
-func sendOnly(ch chan<- int) {ch <- 42}
-func receiveOnly(ch <-chan int) {val := <-ch}
+		func sendOnly(ch chan<- int) {ch <- 42}
+		func receiveOnly(ch <-chan int) {val := <-ch}
 - Channels should be closed using 'close(ch)' to indicate no more values will be sent
 */
 
