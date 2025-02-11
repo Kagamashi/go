@@ -1,8 +1,7 @@
 package main
-
 import "fmt"
 
-/* VARIADIC FUNCTIONS
+/*
 Variadic functions accept a variable number of arguments.
 - Syntax: use ... before the parameter type to indicate variadic parameters
 - For example fmt.Println is a common variadic function
