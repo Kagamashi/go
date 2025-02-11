@@ -1,11 +1,10 @@
 package main
-
 import (
 	"fmt"
 	"time"
 )
 
-/* WORKER POOLS
+/*
 Worker Pools are used to manage concurrent tasks by distributing work among a fixed number of goroutines.
 - Creating a worker pool:
 1. Set up a job channel to send tasks
