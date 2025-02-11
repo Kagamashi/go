@@ -1,12 +1,11 @@
 package main
-
 import (
 	"fmt"
 	"sync"
 	"sync/atomic"
 )
 
-/* ATOMIC COUNTERS
+/*
 Atomic Counters allow safe manipulation of shared variables Oacross multiple goroutines) without explicit locks, avoiding race conditions.
 - Using sync/atomic package provides atomic operations like: Add, Load, Store, CompareAndSwap on integers and pointers
 - Incrementing an Atomic Counter:
