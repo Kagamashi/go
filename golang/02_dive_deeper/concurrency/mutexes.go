@@ -1,11 +1,10 @@
 package main
-
 import (
 	"fmt"
 	"sync"
 )
 
-/* MUTEXES
+/*
 Mutexes (Mutual Exclusions) are used to safely access shared data across multiple goroutines by allowing only one goroutine (locks) to access a critical section of code at a time.
 - Using sync.Mutex provides Lock() and Unlock() methods to control access to shared resources.
 var mu sync.Mutex
