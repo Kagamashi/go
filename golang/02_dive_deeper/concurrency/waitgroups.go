@@ -1,12 +1,11 @@
 package main
-
 import (
 	"fmt"
 	"sync"
 	"time"
 )
 
-/* WAIT GROUPS
+/*
 sync.WaitGroup is used to wait for multiple goroutines to complete.
 - Creating a WaitGroup:
 1. Declare sync.WaitGroup variable
