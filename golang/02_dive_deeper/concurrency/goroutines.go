@@ -1,11 +1,10 @@
 package main
-
 import (
 	"fmt"
 	"time"
 )
 
-/* GOROUTINES
+/*
 Goroutine is a lightweight thread of execution
 - Goroutines enable concurrent execution and are schedules by Go's runtime across available CPU cores
 - Goroutine is launched by prefixing a function call with go keyword:
@@ -15,7 +14,6 @@ ch := make(chan int)
 - Goroutine is non-blocking, main function may exit before a goroutine completes
 - Synchronization tools like sync.WaitGroup to wair for goroutines to finish
 - Thousands of goroutines can run concurrently making Go highly scalable
-
 */
 
 func f(from string) {
