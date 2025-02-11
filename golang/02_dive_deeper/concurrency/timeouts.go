@@ -1,11 +1,10 @@
 package main
-
 import (
 	"fmt"
 	"time"
 )
 
-/* TIMEOUTS
+/*
 Timeouts in Go are managed by using time.After function
 which returns a channel that sends the current time after a specified duration.
 select {
