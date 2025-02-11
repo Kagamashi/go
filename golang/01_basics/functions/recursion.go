@@ -1,9 +1,8 @@
 package main
-
 import "fmt"
 
-/* RECURSIVE FUNCTIONS
-A function that calls itself directly or indirectly to solve problems that can be broken down into subproblems.
+/* 
+recursive function calls itself directly or indirectly to solve problems that can be broken down into subproblems.
 - Base case is essential to prevent infinite recursion.
 */
 
