@@ -1,5 +1,5 @@
 package main
-improt "fmt"
+import "fmt"
 
 /* 
 ZERO VALUES
