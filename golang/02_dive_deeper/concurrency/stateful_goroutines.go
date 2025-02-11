@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	"math/rand"
@@ -7,7 +6,7 @@ import (
 	"time"
 )
 
-/* STATEFUL GOROUTINES
+/*
 Stateful goroutine encapsulated state (data) and manages it internally (within a goroutine), allowing safe access without requiring locks or mutexes.
 - Instead of directly sharing state, pass messages or tasks to the goroutine via channels, which handles the state internally
 func statefulWorker(jobs <-chan int, results chan<- int) {
