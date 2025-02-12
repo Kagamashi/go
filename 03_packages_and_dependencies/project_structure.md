@@ -1,14 +1,14 @@
 # Project Structure
 
-Summary:
-cmd/ → Executables (binaries).
-internal/ → Private packages (restricted to the module).
-pkg/ → Public reusable packages (utilities, models).
-configs/ → Configuration files.
-api/ → API definitions.
-tests/ → Integration tests & mocks.
+## Summary
+- **cmd/** → Executables (binaries)
+- **internal/** → Private packages (restricted to the module)
+- **pkg/** → Public reusable packages (utilities, models)
+- **configs/** → Configuration files
+- **api/** → API definitions
+- **tests/** → Integration tests & mocks
 
-'''csharp
+```plaintext
 myproject/
 │── cmd/          # Command-line binaries (main applications)
 │   ├── app1/
@@ -30,17 +30,17 @@ myproject/
 │── go.sum        # Dependency checksums
 │── README.md     # Project overview
 │── Makefile      # Automation tasks
-'''
+```
 
 ---
 
 ## cmd/: Entry Points for Applications
 
-- cmd/ directory contains entry points (executables) for different applications in the project
-- each subdirectory under cmd/ contains a main.go file for that specific app
-- keeps binaries separate and avoids polluting the root directory 
+- Contains entry points (executables) for different applications in the project.
+- Each subdirectory under `cmd/` contains a `main.go` file for that specific app.
+- Keeps binaries separate and avoids polluting the root directory.
 
-'''go
+```go
 package main
 
 import (
@@ -52,17 +52,17 @@ func main() {
 	fmt.Println("Starting web server...")
 	server.Start()
 }
-'''
+```
 
 ---
 
 ## internal/: Private Code (Restricted Access)
 
-- code inside internal/ cannot be imported by external projects
-- it's enforced by Go module system
-- use internal/ for business logic, database connections, utilities that shouldn't be exposed
+- Code inside `internal/` cannot be imported by external projects.
+- Enforced by the Go module system.
+- Use `internal/` for business logic, database connections, utilities that shouldn't be exposed.
 
-'''go
+```go
 package database
 
 import "fmt"
@@ -70,45 +70,44 @@ import "fmt"
 func Connect() {
 	fmt.Println("Connecting to database...")
 }
-
-'''
+```
 
 ---
 
 ## pkg/: Publicly Reusable Code
 
-- pkg/ directory contains reusable, public packages that can be imported by other Go projects
-- use for utility functions, models, generic components
+- `pkg/` directory contains reusable, public packages that can be imported by other Go projects.
+- Use for utility functions, models, and generic components.
 
-'''go
+```go
 package utils
 
 func Sum(a, b int) int {
 	return a + b
 }
-'''
+```
 
-[!] Some teams avoid pkg/ and instead use individual package directories like models/, utils/
+> Some teams avoid `pkg/` and instead use individual package directories like `models/`, `utils/`.
 
 --- 
 
 ## api/: API Definitions
 
-Store API related files:
-- Protobuf files for gRPC (api/proto/)
-- OpenAPI specs (api/swagger.yaml)
-- GraphQL schemas (api/schema.graphql)
+Store API-related files:
+- Protobuf files for gRPC (`api/proto/`)
+- OpenAPI specs (`api/swagger.yaml`)
+- GraphQL schemas (`api/schema.graphql`)
 
 ---
 
 ## configs/: Configuration Files
 
-Store environment specific configs like:
-- config.yaml
-- config.json
-- .env files
+Store environment-specific configs like:
+- `config.yaml`
+- `config.json`
+- `.env` files
 
-'''go
+```go
 package config
 
 import (
@@ -131,12 +130,12 @@ func LoadConfig(filename string) (*Config, error) {
 	err = json.NewDecoder(file).Decode(config)
 	return config, err
 }
-'''
+```
 
 ---
 
 ## tests/: Integration Tests and Mocks
 
-Store end-to-end tests, integration tests, and test data separately from unit tests
+Store end-to-end tests, integration tests, and test data separately from unit tests.
 
 ---
