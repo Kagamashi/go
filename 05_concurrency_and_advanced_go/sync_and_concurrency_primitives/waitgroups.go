@@ -13,15 +13,15 @@ sync.WaitGroup is used to wait for multiple goroutines to complete.
 3. Each goroutine calls wg.Done() when finished
 4. Main goroutine calls wg.Wait() to block until all tasks are complete
 
-var wg sync.WaitGroup
-for i := 1; i <= 3; i++ {
-    wg.Add(1)
-    go func(i int) {
-        defer wg.Done()
-        // Task execution
-    }(i)
-}
-wg.Wait()  // Wait for all goroutines to finish
+	var wg sync.WaitGroup
+	for i := 1; i <= 3; i++ {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
+			// Task execution
+		}(i)
+	}
+	wg.Wait()  // Wait for all goroutines to finish
 
 - Simplifies synchronization and ensures all goroutines complete before proceeding
 - NOTE: This approach doesn't have straightforward way to propagate errors from workers:
