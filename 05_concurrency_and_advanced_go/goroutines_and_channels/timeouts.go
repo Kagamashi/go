@@ -5,14 +5,13 @@ import (
 )
 
 /*
-Timeouts in Go are managed by using time.After function
-which returns a channel that sends the current time after a specified duration.
-select {
-case res := <-ch:
-    // Handle result
-case <-time.After(2 * time.Second):
-    // Handle timeout
-}
+Timeouts in Go are managed by using time.After function which returns a channel that sends the current time after a specified duration.
+	select {
+	case res := <-ch:
+		// Handle result
+	case <-time.After(2 * time.Second):
+		// Handle timeout
+	}
 - time.After channel blocks for the specified time and can be used to impose time limits on operations like waiting for data from another channel
 */
 
@@ -45,5 +44,4 @@ func timeouts() {
 		fmt.Println("timeout 2")
 	}
 	// result 2
-
 }
