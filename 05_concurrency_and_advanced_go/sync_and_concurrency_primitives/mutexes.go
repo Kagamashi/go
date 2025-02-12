@@ -7,14 +7,14 @@ import (
 /*
 Mutexes (Mutual Exclusions) are used to safely access shared data across multiple goroutines by allowing only one goroutine (locks) to access a critical section of code at a time.
 - Using sync.Mutex provides Lock() and Unlock() methods to control access to shared resources.
-var mu sync.Mutex
-var counter int
-mu.Lock()
-counter++ // Critical section
-mu.Unlock()
+	var mu sync.Mutex
+	var counter int
+	mu.Lock()
+	counter++ // Critical section
+	mu.Unlock()
 
 - syncRWMutex is a variant that allows multiple goroutines to read but only one to write.
-RLock() and RUnlock()
+	RLock() and RUnlock()
 - Used to protect shared variables, counters, resources from race conditions when accessed by multiple goroutines
 - Mutex should not be copied, if struct is passed around it should be done by pointer
 */
@@ -53,5 +53,4 @@ func mutexes() {
 	wg.Wait()
 	fmt.Println(c.counters)
 	// map[a:20000 b:10000]
-
 }
