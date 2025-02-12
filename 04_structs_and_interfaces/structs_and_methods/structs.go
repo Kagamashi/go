@@ -3,19 +3,17 @@ import "fmt"
 
 /*
 Structs are collections of fields (variables) gruped together under a single type
-type Person struct {
-    Name string
-    Age int
-}
-
-p := Person{Name: "Alice", Age: 30}
 
 - Fields are accessed using dot notation
-p.Name
+	p.Name
 - Fields are automatically initialized to their zero values
 - Structs can have embedded (anonymous) fields to enable composition
 - Pointers (*Person) can be used to avoid copying the entire struct during function calls or modifications
 */
+
+// type alias
+type Alias = OriginalType
+type myInt = int
 
 type person struct { // this person struct type has name and age fields
 	name string
