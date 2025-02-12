@@ -1,7 +1,3 @@
-# Go Data Types
-
-Go provides a variety of data types that can be categorized into basic types, composite types, and reference types.
-
 ## Basic Data Types
 | Type       | Description                          | Example |
 |------------|--------------------------------------|---------|
