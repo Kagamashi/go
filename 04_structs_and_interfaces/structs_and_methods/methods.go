@@ -1,8 +1,7 @@
 package main
-
 import "fmt"
 
-/* METHODS
+/*
 Methods in Go are functions with a receiver and are associated with a specific type
 A receiver is a parameter that appears before the function name and specifies the type to which the method belongs.
 func (receiverType receiverName) methodName(parameters) returnType {
@@ -34,14 +33,10 @@ func methods() {
 	fmt.Println("area: ", r.area()) // here we call the 2 methods defined for our struct
 	// area: 50
 
-	fmt.Println("perim:", r.perim())
-	// perim: 30
+	fmt.Println("perim:", r.perim()) // perim: 30
 
 	rp := &r // Go automatically handles conversion between values and pointers for method calls
-	fmt.Println("area: ", rp.area())
-	// area: 50
+	fmt.Println("area: ", rp.area()) // area: 50
 
-	fmt.Println("perim:", rp.perim())
-	// perim: 30
-
+	fmt.Println("perim:", rp.perim()) // perim: 30
 }
