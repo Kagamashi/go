@@ -1,28 +1,27 @@
 package main
-
 import "fmt"
 
-/* GENERICS
-Generics use type paarameters that allow to specify types at the time of calling a function or creating an instance of a type
-func Print[T any](item T) {
-	fmt.Println(item)
-}
-T is a type parameter, any is a type constraint
-
-- Type constraints define the types that can be passed as type parameters
-	- 'any' keyword is a predefined type that allows any type
-func Add[T int | float64](a, b T) T {
-	return a + b
-}
-*/
-
 /*
+Generics use type parameters that allow to specify types at the time of calling a function or creating an instance of a type
+- T is a type parameter
+- any is a shorthand for interface{} (i.e. any type)
+
+Type constraints define the types that can be passed as type parameters
+	func Add[T int | float64](a, b T) T {
+		return a + b
+	}
+
 SliceIndex takes a slice of any comparable type and an element of that type
 and returns the index of the first occurence of v in s, or -1 if not present.
 
 The comparable constraint means that we can compare values of this type with the == and != operators (numbers, strings, pointers)
 https://go.dev/blog/deconstructing-type-parameters
 */
+
+func FunctionName[T any](param T) T {
+    // Function logic
+}
+
 func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
 	for i := range s {
 		if v == s[i] {
@@ -66,7 +65,7 @@ func generics() {
 	// index of zoo: 2
 
 	_ = SlicesIndex[[]string, string](s, "zoo")
-	// _ czyli 'blank identifier' means that the result of the function call will be ignored
+	// _ is 'blank identifier' means that the result of the function call will be ignored
 
 	lst := List[int]{}
 	lst.Push(10)
@@ -74,5 +73,4 @@ func generics() {
 	lst.Push(23)
 	fmt.Println("list:", lst.AllElements())
 	// list: [10 13 23]
-
 }
