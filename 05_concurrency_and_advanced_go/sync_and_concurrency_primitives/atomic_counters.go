@@ -6,17 +6,22 @@ import (
 )
 
 /*
-Atomic Counters allow safe manipulation of shared variables Oacross multiple goroutines) without explicit locks, avoiding race conditions.
+Atomic Counters allow safe manipulation of shared variables across multiple goroutines without explicit locks, avoiding race conditions.
 - Using sync/atomic package provides atomic operations like: Add, Load, Store, CompareAndSwap on integers and pointers
 - Incrementing an Atomic Counter:
-var counter int64
-atomic.AddInt64(&counter, 1)
+	var counter int64
+	atomic.AddInt64(&counter, 1)
 
 - Reading an Atomic Counter:
-val := atomic.LoadInt64(&counter)
+	val := atomic.LoadInt64(&counter)
 
 - Atomic functions ensure that incrementing, reading or updating a variable happens without interference from other goroutines
 - Efficient and lock-free way to manage shared counters across multiple goroutines
+
+atomic.AddInt64(&val, n)	atomically adds n to val
+atomic.LoadInt64(&val)		atomically reads val
+atomic.StoreInt64(&val, n)	atomically sets val to n
+atomic.CompareAndSwapInt64(&val, old, new)		sets val to new if val == old
 */
 
 func atomic_counters() {
