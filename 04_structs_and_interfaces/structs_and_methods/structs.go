@@ -1,8 +1,7 @@
 package main
-
 import "fmt"
 
-/* STRUCTS
+/*
 Structs are collections of fields (variables) gruped together under a single type
 type Person struct {
     Name string
@@ -30,7 +29,6 @@ func newPerson(name string) *person { //newPerson constructs a new person struct
 }
 
 func structs() {
-
 	fmt.Println(person{"Bob", 20}) // this syntax creates a new struct
 	// {Bob 20}
 
@@ -67,5 +65,4 @@ func structs() {
 	}
 	fmt.Println(dog)
 	// {Rex true}
-
 }
