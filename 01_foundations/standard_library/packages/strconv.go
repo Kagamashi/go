@@ -1,12 +1,11 @@
 package main
-
 import (
 	"fmt"
-	"strconv"
+	"strconv" // https://pkg.go.dev/strconv
 )
 
-/* NUMBER PARSING
-Number parsing in Go is handled by strconv package, which converts strings to numeric types and vice versa.
+/*
+strconv package handles numbers parsing which converts strings to numeric types and vice versa.
 
 strconv.Atoi(s string) - converts string to an integer (int).
 strconv.ParseFloat(s string, bitSize int) - converts string to floating-point number; bitSize specified precision (32 or 64 bits)
