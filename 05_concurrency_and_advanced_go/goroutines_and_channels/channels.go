@@ -25,8 +25,7 @@ func channels() {
 	go func() { messages <- "ping" }() // send a value into a channel using channel <-sytanx - here we send "ping" to the messages channel
 
 	msg := <-messages // <-channel syntax receives a value from the channel
-	fmt.Println(msg)
-	// ping
+	fmt.Println(msg) // ping
 
 	// When we run the program the 'ping' message is successfully passed from one goroutine to another via our channel.
 }
