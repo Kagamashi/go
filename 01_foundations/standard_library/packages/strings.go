@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	s "strings" // strings package will be references with shortcut 's'
@@ -48,5 +47,4 @@ func string_functions() {
 
 	p("ToUpper:   ", s.ToUpper("test"))
 	// ToUpper: TEST
-
 }
