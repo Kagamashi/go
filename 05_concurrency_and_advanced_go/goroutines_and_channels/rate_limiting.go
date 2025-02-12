@@ -7,27 +7,27 @@ import (
 /*
 Rate Limiting controles the frequency of events or requests, often used in APIs to limit traffic.
 - Implemented by using:
-time.Ticker
-time.Sleep
+	time.Ticker
+	time.Sleep
 - Go supports rate limiting with goroutines, channels, tickers.
 - Token Bucket Pattern - common pattern where a fixed number of tokens are replenished over time to allow a limited number of operations
 - Basic example with Ticker:
-limiter := time.NewTicker(200 * time.Millisecond)
-for req := range requests {
-    <-limiter.C // Throttle by waiting for the ticker
-    // Process request
-}
+	limiter := time.NewTicker(200 * time.Millisecond)
+	for req := range requests {
+		<-limiter.C // Throttle by waiting for the ticker
+		// Process request
+	}
 
 - Bursty Rate Limiting using a buffered channel to allow short burts of requests, then limit:
-burstLimiter := make(chan time.Time, 3)
-for i := 0; i < 3; i++ {
-    burstLimiter <- time.Now()
-}
-go func() {
-    for t := range time.NewTicker(200 * time.Millisecond).C {
-        burstLimiter <- t
-    }
-}()
+	burstLimiter := make(chan time.Time, 3)
+	for i := 0; i < 3; i++ {
+		burstLimiter <- time.Now()
+	}
+	go func() {
+		for t := range time.NewTicker(200 * time.Millisecond).C {
+			burstLimiter <- t
+		}
+	}()
 
 - Prevents system overload by controlling request rates
 */
