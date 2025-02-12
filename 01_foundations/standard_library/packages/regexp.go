@@ -1,5 +1,4 @@
 package main
-
 import (
 	"bytes"
 	"fmt"
@@ -61,5 +60,4 @@ func regular_expressions() {
 	out := r.ReplaceAllFunc(in, bytes.ToUpper)
 	fmt.Println(string(out))
 	// a PEACH
-
 }
