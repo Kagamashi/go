@@ -10,26 +10,7 @@ Type constraints define the types that can be passed as type parameters
 	func Add[T int | float64](a, b T) T {
 		return a + b
 	}
-
-SliceIndex takes a slice of any comparable type and an element of that type
-and returns the index of the first occurence of v in s, or -1 if not present.
-
-The comparable constraint means that we can compare values of this type with the == and != operators (numbers, strings, pointers)
-https://go.dev/blog/deconstructing-type-parameters
 */
-
-func FunctionName[T any](param T) T {
-    // Function logic
-}
-
-func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
-	for i := range s {
-		if v == s[i] {
-			return i
-		}
-	}
-	return -1
-}
 
 type List[T any] struct { // example of generic type, List is a singly-linked list with values of any type
 	head, tail *element[T]
@@ -73,4 +54,30 @@ func generics() {
 	lst.Push(23)
 	fmt.Println("list:", lst.AllElements())
 	// list: [10 13 23]
+}
+
+
+/*
+SliceIndex takes a slice of any comparable type and an element of that type
+and returns the index of the first occurence of v in s, or -1 if not present.
+
+The comparable constraint means that we can compare values of this type with the == and != operators (numbers, strings, pointers)
+https://go.dev/blog/deconstructing-type-parameters
+
+	- SliceIndex is a generic function
+	- [S ~[]E, E comparable]
+		- S is a slice type (eg. []int, []string)
+		- ~[]E means S must be a slice of type E. ~ allows type aliases (eg. type MySlice []int)
+		- E comparable:
+			- E represents the element type of the slice
+			- comparable means E must supports comparison (== and !=)
+*/
+
+func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
+	for i := range s {
+		if v == s[i] {
+			return i
+		}
+	}
+	return -1
 }
