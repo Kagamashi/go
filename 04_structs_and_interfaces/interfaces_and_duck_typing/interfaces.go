@@ -26,49 +26,42 @@ Interfaces in Go define a set of method signatures that types must implement to 
 https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
 */
 
-type geometry interface { // basic interface for geometric shapes
-	area() float64
-	perim() float64
+// Define an interface
+type Shape interface {
+	Area() float64
 }
 
-type rect_i struct { // we create rect and circle types for our example
-	width, height float64
-}
-type circle struct {
-	radius float64
+// Struct: Circle
+type Circle struct {
+	Radius float64
 }
 
-func (r rect_i) area() float64 { // to implement an interface in Go we just need to implement all the methods in the interface
-	return r.width * r.height
-}
-func (r rect_i) perim() float64 {
-	return 2*r.width + 2*r.height
+// Struct: Rectangle
+type Rectangle struct {
+	Width, Height float64
 }
 
-func (c circle) area() float64 { // implementation for circles
-	return math.Pi * c.radius * c.radius
-}
-func (c circle) perim() float64 {
-	return 2 * math.Pi * c.radius
+// Implement Area() method for Circle
+func (c Circle) Area() float64 {
+	return 3.14 * c.Radius * c.Radius
 }
 
-func measure(g geometry) { // if a variable has an interface type, then we can call methods that are in the named interface
-	fmt.Println(g)
-	fmt.Println(g.area())
-	fmt.Println(g.perim())
+// Implement Area() method for Rectangle
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
 }
 
-func interfaces() {
-	r := rect_i{width: 3, height: 4}
-	c := circle{radius: 5}
-
-	measure(r) // the circle and rect struct types both implement the geometry interface so we can use instances of these structs as arguments to measure
-	// {3 4}
-	// 12
-	// 14
-
-	measure(c)
-	// {5}
-	// 78.53981633974483
-	// 31.41592653589793
+// Function using polymorphism (any Shape)
+func PrintArea(s Shape) {
+	fmt.Println("Area:", s.Area())
 }
+
+func main() {
+	c := Circle{Radius: 5}
+	r := Rectangle{Width: 4, Height: 6}
+
+	// Polymorphic behavior: Different types, same method call
+	PrintArea(c) // Output: Area: 78.5
+	PrintArea(r) // Output: Area: 24
+}
+
