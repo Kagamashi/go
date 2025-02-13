@@ -25,6 +25,9 @@ Naming conventions:
 Test coverage with 'go test -cover' it provides detailed coverage report
 'go test -coverprofile=coverage.out'
 'go tool cover -html=coverage.out'
+
+Fails if coverage is low:
+go test -coverprofile=coverage.out ./... | awk '/total:/ {if ($3 < 80.0) exit 1}'
 */
 
 func IntMin(a, b int) int { // Typically code we're testing would in file called intutils.go and test file for it would be named intutils_test.go
