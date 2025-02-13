@@ -41,8 +41,10 @@ func fmt_package() {
 	fmt.Printf("My name is %s and I am %d years old.\n", name, age)
 
 	formattedString := fmt.Sprintf("The price is %.2f dollars.", 19.99)
+	fmt.Println(formattedString)
 
 	str1 := fmt.Sprintln("This is", "a combined string.")
+	fmt.Println(str1)
 }
 
 type point struct {
