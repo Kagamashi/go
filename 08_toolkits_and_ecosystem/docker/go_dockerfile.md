@@ -2,12 +2,12 @@
 
 Multi-stage builds help reduce image size, improve security, and optimize performance by separating the build process from the final runtime image.
 
-## 🔹 Benefits of Multi-Stage Builds
+## Benefits of Multi-Stage Builds
 - **Smaller images**: Remove unnecessary build tools from the final image.
 - **Better security**: Reduce the attack surface by using minimal base images.
 - **Optimized performance**: Faster startup times with smaller, statically linked binaries.
 
-## 🏗 Base Images for Go
+## Base Images for Go
 | **Base Image** | **Size** | **Description** |
 |--------------|---------|----------------|
 | `golang:1.20` | 1GB+ | Full Go toolchain for building applications |
@@ -17,7 +17,7 @@ Multi-stage builds help reduce image size, improve security, and optimize perfor
 
 ---
 
-## 🚀 Example: Using `scratch` for Minimal Images
+## Example: Using `scratch` for Minimal Images
 If your Go binary is fully statically linked, you can use `scratch`, an empty base image.
 
 ```dockerfile
@@ -45,7 +45,7 @@ CMD ["/myapp"]
 
 ---
 
-## 🚀 Example: Using `distroless/static`
+## Example: Using `distroless/static`
 For minimal dependencies with networking and timezone support, use `distroless/static`.
 
 ```dockerfile
@@ -68,48 +68,47 @@ CMD ["/myapp"]
 
 ---
 
-## 🏆 Best Practices for Containerizing Go Apps
+## Best Practices for Containerizing Go Apps
 
-### ✅ Use Multi-Stage Builds
+### 🔹 Use Multi-Stage Builds
 - Keeps final images small.
 - Removes unnecessary tools from production images.
 
-### ✅ Set `CGO_ENABLED=0` for Static Binaries
+### 🔹 Set `CGO_ENABLED=0` for Static Binaries
 - Ensures pure Go binaries that run in `scratch` or `distroless`.
 
-### ✅ Use Minimal Base Images (`scratch` or `distroless`)
+### 🔹 Use Minimal Base Images (`scratch` or `distroless`)
 - Reduces vulnerabilities.
 - Improves startup time.
 
-### ✅ Reduce Binary Size (Optional)
+### 🔹 Reduce Binary Size (Optional)
 ```sh
 go build -ldflags="-s -w" -o myapp
 ```
 - `-s`: Remove symbol table.
 - `-w`: Remove debugging information.
 
-### ✅ Enable Garbage Collection for Better Memory Usage
+### 🔹 Enable Garbage Collection for Better Memory Usage
 ```sh
 GODEBUG=madvdontneed=1
 ```
 - Helps with memory reclamation in long-running services.
 
-### ✅ Use `COPY` Instead of `ADD` in Dockerfile
+### 🔹 Use `COPY` Instead of `ADD` in Dockerfile
 - `COPY` is faster and more secure.
 - `ADD` should only be used for extracting `.tar` files.
 
-### ✅ Use Healthchecks
+### 🔹 Use Healthchecks
 ```dockerfile
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \
   CMD curl -f http://localhost:8080/health || exit 1
 ```
 - Ensures containers are restarted if they fail.
 
-### ✅ Optimize Layers to Improve Build Caching
+### 🔹 Optimize Layers to Improve Build Caching
 ```dockerfile
 COPY go.mod go.sum .
 RUN go mod download
 COPY . .
 ```
 - This allows Docker to cache dependencies efficiently.
-
