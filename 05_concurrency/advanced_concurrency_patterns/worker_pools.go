@@ -5,24 +5,30 @@ import (
 )
 
 /*
-Worker Pools are used to manage concurrent tasks by distributing work among a fixed number of goroutines.
+Worker Pool is a pattern where multiple worker goroutines process tasks from a shared job queue
+	- limit resource usage
+	- prevent system overload from excessive goroutines
+	- efficiently distribute tasks among multiple workers
+
+	Key informations:
+- job queue is a buffered channel where tasks are submitted
+- fixed number of workers (goroutines) process jobs concurrently
+- synchronization is done using sync.WaitGroup to ensure all workers complete before exiting
+- efficient use of resources compared to spawning a goroutine per job
+
 - Creating a worker pool:
 1. Set up a job channel to send tasks
 2. Launch multiple goroutines that process jobs from the channel
 3. Send tasks through the job channel nd close it when done
-
-jobs := make(chan int, 100)
-results := make(chan int, 100)
-for w := 1; w <= 3; w++ {
-    go worker(w, jobs, results)
-}
-for j := 1; j <= 5; j++ {
-    jobs <- j
-}
-close(jobs)
-
-- Each worker goroutine processes tasks from the jobs channel, ensuring efficient concurrent execution
-- Improves performance by limiting the number of active goroutines and controlling concurrency
+		jobs := make(chan int, 100)
+		results := make(chan int, 100)
+		for w := 1; w <= 3; w++ {
+				go worker(w, jobs, results)
+		}
+		for j := 1; j <= 5; j++ {
+				jobs <- j
+		}
+		close(jobs)
 */
 
 func worker_p(id int, jobs <-chan int, results chan<- int) { // worker of which we'll run several concurrent instances
