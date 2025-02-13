@@ -1,12 +1,16 @@
-Common Concurrency Mistakes in Go
-1️⃣ Goroutine Leaks
-What is it? Goroutines that are started but never terminate, leading to increased memory consumption.
-Why does it happen? The goroutine is waiting on a channel that no longer has a sender, or it was never properly stopped.
-Example of a goroutine leak:
+# Common Concurrency Mistakes in Go
 
-go
-Kopiuj
-Edytuj
+## 1. Goroutine Leaks
+
+### What is it?
+Goroutines that are started but never terminate, leading to increased memory consumption.
+
+### Why does it happen?
+- The goroutine is waiting on a channel that no longer has a sender.
+- The goroutine was never properly stopped.
+
+### Example: Goroutine Leak
+```go
 func leakyGoroutine() {
 	ch := make(chan int)
 	go func() {
@@ -20,11 +24,10 @@ func main() {
 	leakyGoroutine()
 	time.Sleep(time.Second) // The goroutine is still running
 }
-Fix: Ensure all goroutines terminate properly, e.g., by using timeouts or context cancellation.
+```
 
-go
-Kopiuj
-Edytuj
+### Fix: Use Context for Proper Termination
+```go
 func safeGoroutine(ctx context.Context) {
 	ch := make(chan int)
 	go func() {
@@ -47,14 +50,20 @@ func main() {
 	safeGoroutine(ctx)
 	time.Sleep(2 * time.Second)
 }
-2️⃣ Data Races
-What is it? When multiple goroutines access and modify the same variable without proper synchronization.
-Why does it happen? No locks or atomic operations to ensure safe concurrent access.
-Example of a race condition:
+```
 
-go
-Kopiuj
-Edytuj
+---
+
+## 2. Data Races
+
+### What is it?
+When multiple goroutines access and modify the same variable without proper synchronization.
+
+### Why does it happen?
+- No locks or atomic operations to ensure safe concurrent access.
+
+### Example: Race Condition
+```go
 var counter int
 
 func raceCondition() {
@@ -64,11 +73,10 @@ func raceCondition() {
 	time.Sleep(time.Second)
 	fmt.Println("Counter:", counter) // Unpredictable output
 }
-Fix: Use sync.Mutex or sync/atomic for synchronization.
+```
 
-go
-Kopiuj
-Edytuj
+### Fix: Use `sync.Mutex`
+```go
 var counter int64
 var mu sync.Mutex
 
@@ -83,11 +91,10 @@ func safeCounter() {
 	time.Sleep(time.Second)
 	fmt.Println("Counter:", counter) // Predictable output
 }
-Alternatively, use atomic operations:
+```
 
-go
-Kopiuj
-Edytuj
+### Alternatively, Use Atomic Operations
+```go
 var counter int64
 
 func atomicCounter() {
@@ -99,14 +106,21 @@ func atomicCounter() {
 	time.Sleep(time.Second)
 	fmt.Println("Counter:", counter)
 }
-3️⃣ Deadlocks
-What is it? Two or more goroutines are waiting for each other, causing a circular wait.
-Why does it happen? Holding locks in the wrong order or waiting on channels incorrectly.
-Example of a deadlock:
+```
 
-go
-Kopiuj
-Edytuj
+---
+
+## 3. Deadlocks
+
+### What is it?
+Two or more goroutines are waiting for each other, causing a circular wait.
+
+### Why does it happen?
+- Holding locks in the wrong order.
+- Waiting on channels incorrectly.
+
+### Example: Deadlock
+```go
 var mu1, mu2 sync.Mutex
 
 func deadlock() {
@@ -129,16 +143,24 @@ func deadlock() {
 	time.Sleep(time.Second)
 	fmt.Println("Finished (if no deadlock)")
 }
-Fix: Always lock and unlock in a consistent order, or use sync.TryLock to avoid waiting indefinitely.
+```
 
-4️⃣ Blocking Operations in Goroutines
-What is it? A goroutine blocks indefinitely, preventing further progress.
-Why does it happen? Waiting on a channel that is never closed or has no sender.
-Example of a blocked goroutine:
+### Fix: Locking Order & `sync.TryLock`
+- Always lock and unlock in a **consistent order**.
+- Use `sync.TryLock` to avoid waiting indefinitely.
 
-go
-Kopiuj
-Edytuj
+---
+
+## 4. Blocking Operations in Goroutines
+
+### What is it?
+A goroutine blocks indefinitely, preventing further progress.
+
+### Why does it happen?
+- Waiting on a channel that is never closed or has no sender.
+
+### Example: Blocked Goroutine
+```go
 func blockedGoroutine() {
 	ch := make(chan int)
 	go func() {
@@ -147,11 +169,10 @@ func blockedGoroutine() {
 	}()
 	time.Sleep(time.Second)
 }
-Fix: Use timeouts or context cancellation.
+```
 
-go
-Kopiuj
-Edytuj
+### Fix: Use Timeouts or Context Cancellation
+```go
 func nonBlockingGoroutine() {
 	ch := make(chan int)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
@@ -167,3 +188,6 @@ func nonBlockingGoroutine() {
 	}()
 	time.Sleep(2 * time.Second)
 }
+```
+
+---
