@@ -1,5 +1,4 @@
 package main
-
 import (
 	"bytes"
 	"fmt"
@@ -9,7 +8,7 @@ import (
 	"log/slog"
 )
 
-/* LOGGING
+/*
 Logging is essential for tracking application behavior, debugging and monitoring.
 
 *log package* for free-form output
@@ -24,9 +23,9 @@ log.Fatal(args...) - logs a message and calls os.Exit(1) which terminates the pr
 log.Panic(args...) - logs a message and calls panic() which causes runtime panic
 
 *log/slog* package for structured output
-- Log Levels: Info, Error, Debug
-slog.NewJSONHandler
-slog.New
+Log Levels: Info, Error, Debug
+	slog.NewJSONHandler
+	slog.New
 */
 
 func logging() {
